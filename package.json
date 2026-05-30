@@ -1,0 +1,19 @@
+{
+  "name": "clander",
+  "version": "1.0.0",
+  "description": "A minimal calendar app to compete with Google Calendar",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server",
+    "dev": "npx http-server -c-1"
+  },
+  "keywords": [
+    "calendar",
+    "minimal",
+    "lightweight",
+    "event-management"
+  ],
+  "author": "DAY01N",
+  "license": "MIT",
+  "devDependencies": {}
+}

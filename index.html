@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clander - Minimal Calendar</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">📅 Clander</h1>
+                <p class="tagline">Your minimal calendar companion</p>
+            </div>
+        </header>
+
+        <!-- Main Calendar Container -->
+        <main class="main">
+            <!-- Calendar Controls -->
+            <div class="controls">
+                <button id="prevBtn" class="btn btn-nav">← Previous</button>
+                <div class="month-year">
+                    <h2 id="monthYear"></h2>
+                </div>
+                <button id="nextBtn" class="btn btn-nav">Next →</button>
+            </div>
+
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button id="monthViewBtn" class="btn btn-view active">Month View</button>
+                <button id="weekViewBtn" class="btn btn-view">Week View</button>
+                <button id="todayBtn" class="btn btn-primary">Today</button>
+            </div>
+
+            <!-- Calendar Grid -->
+            <div id="calendar" class="calendar-grid"></div>
+
+            <!-- Events List Sidebar -->
+            <div class="sidebar">
+                <h3>Upcoming Events</h3>
+                <div id="eventsList" class="events-list"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add Event</h2>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventDate">Date:</label>
+                    <input type="date" id="eventDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventTitle">Title:</label>
+                    <input type="text" id="eventTitle" placeholder="Event title" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventTime">Time:</label>
+                    <input type="time" id="eventTime">
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description:</label>
+                    <textarea id="eventDescription" placeholder="Event description" rows="4"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Event</button>
+                    <button type="button" id="deleteEventBtn" class="btn btn-danger" style="display:none;">Delete</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>
