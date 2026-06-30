@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clander - Choose Your App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f8fafc;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 3rem;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .app-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            border-color: #6366f1;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .app-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .app-description {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .feature-icon {
+            color: #6366f1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(100, 116, 139, 0.3);
+            border: 1px solid #334155;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(100, 116, 139, 0.5);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            color: #64748b;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #334155;
+        }
+
+        .divider span {
+            padding: 0 1rem;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📅 Clander</div>
+        <p class="tagline">Choose your productivity tool</p>
+
+        <div class="apps-grid">
+            <!-- Calendar App -->
+            <a href="index.html" class="app-card">
+                <div class="app-icon">📅</div>
+                <h2 class="app-title">Calendar</h2>
+                <p class="app-description">A lightweight, fast calendar application designed to compete with Google Calendar.</p>
+                <div class="app-features">
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Month & Week Views</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Event Management</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Local Storage</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>No Account Required</span>
+                    </div>
+                </div>
+                <button class="btn">Open Calendar</button>
+            </a>
+
+            <!-- AI Chatbot -->
+            <a href="ai-chatbot/index.html" class="app-card">
+                <div class="app-icon">🤖</div>
+                <h2 class="app-title">AI Chatbot Aggregator</h2>
+                <p class="app-description">Query multiple AI services simultaneously and get comprehensive answers.</p>
+                <div class="app-features">
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>ChatGPT, Gemini, Perplexity, Claude</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Intelligent Summarization</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Customizable Settings</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Source Tracking</span>
+                    </div>
+                </div>
+                <button class="btn">Open AI Chatbot</button>
+            </a>
+        </div>
+
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="index.html" class="btn btn-secondary">
+                <span>📅 Go to Calendar</span>
+            </a>
+            <a href="ai-chatbot/index.html" class="btn btn-secondary">
+                <span>🤖 Go to AI Chatbot</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>Clander - Your productivity companion | <a href="README.md">Documentation</a></p>
+        </div>
+    </div>
+</body>
+</html>

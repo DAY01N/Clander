@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-AI Chatbot Aggregator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">🤖</span>
+                    Multi-AI Aggregator
+                </h1>
+                <p class="tagline">Get the best answer from multiple AI models</p>
+            </div>
+            <div class="header-actions">
+                <button id="clearChatBtn" class="btn btn-secondary">
+                    <span>🗑️ Clear Chat</span>
+                </button>
+                <button id="settingsBtn" class="btn btn-secondary">
+                    <span>⚙️ Settings</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Chat Area -->
+        <main class="main-chat">
+            <!-- Chat Messages Container -->
+            <div id="chatContainer" class="chat-container">
+                <div id="messages" class="messages">
+                    <!-- Welcome Message -->
+                    <div class="message welcome-message">
+                        <div class="message-content">
+                            <div class="message-avatar">👋</div>
+                            <div class="message-text">
+                                <p><strong>Welcome to Multi-AI Chatbot Aggregator!</strong></p>
+                                <p>I'll send your prompts to multiple AI services (ChatGPT, Gemini, Perplexity, Claude) and then summarize all their responses into a comprehensive answer.</p>
+                                <p><em>Try asking me anything!</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-container">
+                    <textarea 
+                        id="promptInput" 
+                        class="prompt-input" 
+                        placeholder="Type your message here... (Press Enter to send, Shift+Enter for new line)"
+                        rows="1"
+                        autofocus
+                    ></textarea>
+                    <button id="sendBtn" class="send-btn btn btn-primary">
+                        <span class="send-icon">➤</span>
+                    </button>
+                </div>
+                <div class="input-info">
+                    <span id="statusText" class="status-text">Ready</span>
+                    <span id="modelStatus" class="model-status"></span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>⚙️ Settings</h2>
+                    <span class="close-btn">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="settings-section">
+                        <h3>AI Models</h3>
+                        <p>Select which AI services to query:</p>
+                        <div class="model-selectors">
+                            <label class="model-checkbox">
+                                <input type="checkbox" id="useChatGPT" checked>
+                                <span class="model-name">ChatGPT</span>
+                                <span class="model-icon">🟢</span>
+                            </label>
+                            <label class="model-checkbox">
+                                <input type="checkbox" id="useGemini" checked>
+                                <span class="model-name">Gemini</span>
+                                <span class="model-icon">🟡</span>
+                            </label>
+                            <label class="model-checkbox">
+                                <input type="checkbox" id="usePerplexity" checked>
+                                <span class="model-name">Perplexity</span>
+                                <span class="model-icon">🔵</span>
+                            </label>
+                            <label class="model-checkbox">
+                                <input type="checkbox" id="useClaude" checked>
+                                <span class="model-name">Claude</span>
+                                <span class="model-icon">🟣</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Summarization</h3>
+                        <p>Choose which AI to use for final summarization:</p>
+                        <select id="summarizerModel" class="model-select">
+                            <option value="gemini">Gemini (Recommended)</option>
+                            <option value="chatgpt">ChatGPT</option>
+                            <option value="claude">Claude</option>
+                        </select>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>Display Options</h3>
+                        <label class="setting-checkbox">
+                            <input type="checkbox" id="showIndividualResponses" checked>
+                            <span>Show individual AI responses</span>
+                        </label>
+                        <label class="setting-checkbox">
+                            <input type="checkbox" id="showSources" checked>
+                            <span>Show sources/citations when available</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveSettingsBtn" class="btn btn-primary">Save Settings</button>
+                    <button id="cancelSettingsBtn" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p id="loadingText">Querying AI models...</p>
+                <div id="loadingProgress" class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/ai-service.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
